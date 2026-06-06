@@ -6,14 +6,12 @@ from flask import (Flask, render_template, request, redirect, url_for,
 from werkzeug.security import generate_password_hash, check_password_hash
 from werkzeug.utils import secure_filename
 
-# â”€â”€ Load .env FIRST â€” must happen before reading any os.environ keys â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 try:
     from dotenv import load_dotenv
     load_dotenv(override=True)   # override=True ensures .env beats pre-existing env vars
 except ImportError:
     pass
 
-# â”€â”€ AI CONFIGURATION â€” read AFTER dotenv is loaded â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 AI_BASE_URL = os.environ.get('AI_BASE_URL', 'https://api.groq.com/openai/v1/chat/completions')
 AI_API_KEY  = os.environ.get('GROQ_API_KEY', '')   # Set in .env â€” do NOT hardcode keys here
 AI_MODEL    = os.environ.get('AI_MODEL', 'llama-3.3-70b-versatile')
@@ -40,7 +38,6 @@ os.makedirs(app.config['UPLOAD_FOLDER'], exist_ok=True)
 DB_PATH = os.path.join(os.path.dirname(__file__), 'wealthlens.db')
 ALLOWED_EXTENSIONS = {'csv', 'xlsx', 'xls', 'pdf', 'txt'}
 
-# â”€â”€â”€ DB â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 def get_db():
     if 'db' not in g:
         g.db = sqlite3.connect(DB_PATH)
@@ -166,7 +163,6 @@ def init_db():
     db.commit()
     db.close()
 
-# â”€â”€â”€ Auth â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 def login_required(f):
     @wraps(f)
     def decorated(*args, **kwargs):
@@ -181,7 +177,6 @@ def current_user():
     db = get_db()
     return db.execute("SELECT * FROM users WHERE id=?", (session['user_id'],)).fetchone()
 
-# â”€â”€â”€ FX â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 FX = {'MXN':1,'USD':17.15,'EUR':18.60,'CAD':12.60,'GBP':21.70}
 SYMBOLS = {'MXN':'$','USD':'US$','EUR':'â‚¬','CAD':'CA$','GBP':'Â£'}
 
@@ -193,7 +188,6 @@ def to_mxn(amount, currency):
     rate = FX.get(currency, 1)
     return amount * rate
 
-# â”€â”€â”€ AI UTILITIES â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 def _is_ai_configured():
     """Check if AI gateway is properly configured."""
     return bool(AI_API_KEY and AI_API_KEY.strip())
@@ -220,7 +214,6 @@ def call_ai_gateway(messages, stream=False, max_tokens=1000):
     resp.raise_for_status()
     return resp
 
-# â”€â”€â”€ CATEGORY / IMPORT PARSERS â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 def detect_bank(filename, text_sample):
     fn = filename.lower()
     sample = text_sample.lower()
@@ -361,7 +354,6 @@ Net cash flow: ${(recent['income'] - recent['expenses']):,.0f} MXN
     
     return ctx
 
-# â”€â”€â”€ DEPOSIT RATES (demo fallback) â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 _DEPOSIT_RATES_CACHE = {
     'rates': [
         {'bank': 'Banregio',       'rate': 12.10, 'term': '28 dÃ­as',  'type': 'CEDE'},
@@ -379,7 +371,6 @@ _DEPOSIT_RATES_CACHE = {
     'updated':   '2026-04',
 }
 
-# â”€â”€â”€ ROUTES â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 
 @app.route('/')
 def index():
@@ -477,7 +468,6 @@ def api_status():
         ]
     })
 
-# â”€â”€â”€ FINANCIAL DATA APIs â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 
 @app.route('/api/wealth/summary')
 @login_required
@@ -692,7 +682,6 @@ def _demo_dashboard_payload(monthly_data, cat_data, lang):
         "recommendations": [{"priority": 1, "title": "Configure your API key", "detail": "You need GROQ_API_KEY in .env.", "impact": "High"}],
     }
 
-# â”€â”€â”€ CHATBOT API â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 
 @app.route('/api/chat', methods=['POST'])
 @login_required
@@ -806,100 +795,8 @@ init_db()
 def ping():
     return 'pong', 200
 
-# â”€â”€â”€ DEMO ROUTE â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
-# Paste this block into app.py just ABOVE the line: @app.route('/ping')
-def ping():
-    return 'pong', 200
-
-if __name__ == '__main__':
-
-@app.route('/demo')
-def demo_login():
-    """Auto-login with a demo account â€” no registration needed."""
-    DEMO_EMAIL = 'demo@wealthlens.mx'
-    DEMO_PASSWORD = 'WealthLens2026!'
-    DEMO_NAME = 'Demo User'
-
-    db = get_db()
-
-    # Create demo user if they don't exist
-    existing = db.execute("SELECT * FROM users WHERE email=?", (DEMO_EMAIL,)).fetchone()
-    if not existing:
-        db.execute(
-            "INSERT INTO users (email, password_hash, name, lang, currency) VALUES (?, ?, ?, ?, ?)",
-            (DEMO_EMAIL, generate_password_hash(DEMO_PASSWORD), DEMO_NAME, 'en', 'MXN')
-        )
-        db.commit()
-        # Re-fetch after insert
-        existing = db.execute("SELECT * FROM users WHERE email=?", (DEMO_EMAIL,)).fetchone()
-
-    # Seed demo data if no assets yet
-    asset_count = db.execute("SELECT COUNT(*) as c FROM assets WHERE user_id=?", (existing['id'],)).fetchone()['c']
-    if asset_count == 0:
-        demo_assets = [
-            (existing['id'], 'CEDE Banregio 28d', 'cede', 150000, 'MXN', '12.10% GAT'),
-            (existing['id'], 'AMXL.MX â€” AmÃ©rica MÃ³vil', 'stock', 85000, 'MXN', '340 acciones'),
-            (existing['id'], 'Bitcoin (BTC)', 'crypto', 62000, 'MXN', '0.035 BTC'),
-            (existing['id'], 'Ethereum (ETH)', 'crypto', 28000, 'MXN', '0.5 ETH'),
-            (existing['id'], 'FIBRA UNO (FUNO11)', 'fibra', 45000, 'MXN', '1,500 certificados'),
-            (existing['id'], 'Fondo de Emergencia', 'cash', 30000, 'MXN', '3 meses gastos'),
-        ]
-        db.executemany(
-            "INSERT INTO assets (user_id, name, type, value_mxn, currency, note) VALUES (?,?,?,?,?,?)",
-            demo_assets
-        )
-
-        demo_goals = [
-            (existing['id'], 'Fondo de Retiro', 'Retirement Fund', 2000000, 420000, '2045-12-31', 1, '#1D9E75'),
-            (existing['id'], 'Viaje a JapÃ³n', 'Trip to Japan', 80000, 35000, '2026-12-31', 2, '#378ADD'),
-            (existing['id'], 'Enganche Casa', 'House Down Payment', 500000, 150000, '2028-06-30', 1, '#EF9F27'),
-        ]
-        db.executemany(
-            "INSERT INTO goals (user_id, name, name_es, target_mxn, saved_mxn, deadline, priority, color) VALUES (?,?,?,?,?,?,?,?)",
-            demo_goals
-        )
-
-        import random
-        categories = ['groceries', 'dining', 'transport', 'utilities', 'entertainment', 'health', 'shopping']
-        amounts_expense = [-3200, -1800, -950, -2100, -650, -480, -1200, -890, -2400, -760]
-        amounts_income = [28000, 28000, 5000, 28000, 28000, 3500]
-        demo_transactions = []
-        for i in range(6):
-            demo_transactions.append((
-                existing['id'],
-                f'2026-0{i+1}-05',
-                'NÃ³mina mensual',
-                amounts_income[i],
-                'income', 'manual', 'BBVA'
-            ))
-        for i in range(20):
-            month = (i % 6) + 1
-            demo_transactions.append((
-                existing['id'],
-                f'2026-0{month}-{10 + (i % 15)}',
-                f'Gasto {categories[i % len(categories)]}',
-                amounts_expense[i % len(amounts_expense)],
-                categories[i % len(categories)], 'manual', 'BBVA'
-            ))
-        db.executemany(
-            "INSERT INTO transactions (user_id, date, description, amount, category, source, account) VALUES (?,?,?,?,?,?,?)",
-            demo_transactions
-        )
-        db.commit()
-
-    # Log in as demo user
-    session['user_id'] = existing['id']
-    session['lang'] = 'en'
-    return redirect(url_for('dashboard'))
-
-
-@app.route('/ping')
-def ping():
-    return 'pong', 200
 
 if __name__ == '__main__':
     init_db()
-    print("\nâœ… WealthLens MX running at http://localhost:5000\n")
+    print("\n WealthLens MX running at http://localhost:5000\n")
     app.run(debug=True, port=5000)
-
-
