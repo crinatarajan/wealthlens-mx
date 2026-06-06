@@ -37,7 +37,41 @@
 
 ## 🖥️ Screenshots
 
-> *(Add screenshots here after cloning — use `wealthlens_showcase.html` for a zero-setup demo)*
+### 📊 Financial Dashboard
+![Dashboard](screenshots/01_dashboard.png)
+*KPI cards, income vs expenses chart, asset allocation donut, and recent transactions*
+
+### 💼 Portfolio Breakdown
+![Portfolio](screenshots/02_portfolio.png)
+*Full asset table across CEDEs, stocks (MX + US), crypto, and FIBRAs*
+
+### 📈 Market Data
+![Market Data](screenshots/03_market_data.png)
+*Live Mexican bank CEDE rates, stock prices via Yahoo Finance, and crypto via CoinGecko*
+
+### 🧠 AI Financial Analysis
+![AI Analysis](screenshots/04_ai_analysis.png)
+*LLM-generated health score, insights, and ranked recommendations — refreshable on demand*
+
+### 💬 AI Advisor Chat
+![AI Chat](screenshots/05_ai_advisor.png)
+*Conversational advisor with full portfolio context, suggested questions, and quick chips*
+
+### 🔌 API Dashboard — Endpoints
+![API Endpoints](screenshots/06_api_dashboard.png)
+*Interactive endpoint explorer with one-click testing and live JSON responses*
+
+### 🧪 API Playground
+![API Playground](screenshots/07_api_playground.png)
+*Custom request builder — select endpoint, edit JSON body, see response*
+
+### 🗄️ Database Schema
+![DB Schema](screenshots/08_api_schema.png)
+*Full SQLite schema viewer — all 8 tables with CREATE TABLE statements*
+
+### 📱 Mobile View
+![Mobile](screenshots/09_mobile_dashboard.png)
+*Responsive layout with hamburger nav — works on any screen size*
 
 ---
 
