@@ -857,6 +857,72 @@ def api_chat_history():
     ).fetchall()
     return jsonify({'ok': True, 'history': [dict(r) for r in rows]})
 
+import os, requests as req
+from flask import request, jsonify
+
+ANTHROPIC_KEY = os.environ.get("ANTHROPIC_API_KEY", "")
+
+PORTFOLIO_SYSTEM = """
+You are WealthLens AI Advisor, a personal finance expert for Mexican investors.
+You are speaking with Natarajan Demo, a premium user.
+
+PORTFOLIO SNAPSHOT (June 2026):
+- Total Assets: $847,000 MXN
+- Savings Rate: 34% (above average)
+- Monthly Income: $38,500 MXN
+- Monthly Expenses: $25,400 MXN
+
+HOLDINGS:
+1. Banregio CEDE 28d: $180,000 MXN — 11.50% APR
+2. Inbursa CEDE 91d: $116,000 MXN — 10.80% APR
+3. AMXL.MX: $145,000 MXN — 2,850 shares
+4. SPY: $118,000 MXN — 22 shares
+5. Bitcoin: $95,000 MXN — 0.0934 BTC
+6. Ethereum: $49,000 MXN — 1.42 ETH
+7. Cash (BBVA): $144,000 MXN — 3.1% savings rate
+
+CEDE RATES: Banregio 11.5%, Inbursa 10.8%, Banbajío 10.25%, HSBC 9.75%, Santander 9.5%
+
+Respond in a friendly, expert tone. Be specific with numbers. Answer in the same
+language the user writes (Spanish or English). Keep responses concise (2-4 paragraphs).
+""".strip()
+
+
+@app.route("/api/ai/chat", methods=["POST"])
+def ai_chat_proxy():
+    """Secure proxy — API key stays server-side, never exposed to browser."""
+    if not ANTHROPIC_KEY:
+        return jsonify({"ok": False, "error": "ANTHROPIC_API_KEY not set on server"}), 500
+
+    data = request.get_json(force=True) or {}
+    messages = data.get("messages", [])
+    if not messages:
+        return jsonify({"ok": False, "error": "No messages provided"}), 400
+
+    try:
+        resp = req.post(
+            "https://api.anthropic.com/v1/messages",
+            headers={
+                "x-api-key": ANTHROPIC_KEY,
+                "anthropic-version": "2023-06-01",
+                "Content-Type": "application/json",
+            },
+            json={
+                "model": "claude-sonnet-4-20250514",
+                "max_tokens": 600,
+                "system": PORTFOLIO_SYSTEM,
+                "messages": messages,
+            },
+            timeout=30,
+        )
+        resp.raise_for_status()
+        answer = resp.json()["content"][0]["text"]
+        return jsonify({"ok": True, "answer": answer})
+    except req.exceptions.HTTPError as e:
+        return jsonify({"ok": False, "error": str(e)}), 502
+    except Exception as e:
+        return jsonify({"ok": False, "error": str(e)}), 500
+
 
 @app.route('/ping')
 def ping():
