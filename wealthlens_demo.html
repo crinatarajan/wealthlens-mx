@@ -286,9 +286,9 @@ tr:hover td{background:var(--cream)}
     <span class="sidebar-badge-text">Live AI â€” Claude Sonnet</span>
   </div>
   <div class="sidebar-user">
-    <div class="user-avatar">JD</div>
+    <div class="user-avatar">ND</div>
     <div class="user-info">
-      <div class="user-name">Juan Demo</div>
+      <div class="user-name">Natarajan Demo</div>
       <div class="user-role">Premium Â· MXN</div>
     </div>
   </div>
@@ -484,12 +484,12 @@ tr:hover td{background:var(--cream)}
         </div>
       </div>
       <div class="card">
-        <div class="card-header"><span class="card-title">ðŸª™ Crypto</span></div>
-        <div class="market-grid" style="grid-template-columns:1fr 1fr">
-          <div class="market-card"><div class="market-ticker">BTC</div><div class="market-name">Bitcoin</div><div class="market-price">$105,240</div><div class="market-change up">â–² +3.2% 24h</div></div>
-          <div class="market-card"><div class="market-ticker">ETH</div><div class="market-name">Ethereum</div><div class="market-price">$3,812</div><div class="market-change down">â–¼ -1.1% 24h</div></div>
-          <div class="market-card"><div class="market-ticker">SOL</div><div class="market-name">Solana</div><div class="market-price">$178.50</div><div class="market-change up">â–² +4.7% 24h</div></div>
-          <div class="market-card"><div class="market-ticker">USDT</div><div class="market-name">Tether</div><div class="market-price">$1.00</div><div class="market-change neutral">â€” Stable</div></div>
+        <div class="card-header"><span class="card-title">&#x1FA99; Crypto</span><span class="card-sub" id="cryptoUpdated">Loading live prices&hellip;</span></div>
+        <div class="market-grid" style="grid-template-columns:1fr 1fr" id="cryptoGrid">
+          <div class="market-card"><div class="market-ticker">BTC</div><div class="market-name">Bitcoin</div><div class="market-price" id="btcPrice">&hellip;</div><div class="market-change neutral" id="btcChange">&mdash;</div></div>
+          <div class="market-card"><div class="market-ticker">ETH</div><div class="market-name">Ethereum</div><div class="market-price" id="ethPrice">&hellip;</div><div class="market-change neutral" id="ethChange">&mdash;</div></div>
+          <div class="market-card"><div class="market-ticker">SOL</div><div class="market-name">Solana</div><div class="market-price" id="solPrice">&hellip;</div><div class="market-change neutral" id="solChange">&mdash;</div></div>
+          <div class="market-card"><div class="market-ticker">XRP</div><div class="market-name">Ripple</div><div class="market-price" id="xrpPrice">&hellip;</div><div class="market-change neutral" id="xrpChange">&mdash;</div></div>
         </div>
       </div>
     </div>
@@ -938,7 +938,7 @@ async function sendChat(){
     const data=await res.json();
     removeTyping(typingId);
     if(!data.ok){
-      appendMsg('ai','⚠️ '+(data.error||'Could not reach the server. Please try again.'));
+      appendMsg('ai','⚠️ AI advisor error: '+(data.error||'The AI could not generate a reply. Ensure GROQ_API_KEY is set in your Render Environment Variables.'));
     } else {
       const answer=data.answer||'Sorry, I could not generate a response.';
       appendMsg('ai',answer);
@@ -946,7 +946,7 @@ async function sendChat(){
     }
   }catch(e){
     removeTyping(typingId);
-    appendMsg('ai','⚠️ Connection error: '+e.message);
+    appendMsg('ai','⚠️ Could not connect to the server. Make sure your app is running on Render and GROQ_API_KEY is set in Environment Variables. Error: '+e.message);
   }
   document.getElementById('sendBtn').disabled=false;
 }
@@ -957,7 +957,7 @@ function appendMsg(role,text){
   const now=new Date().toLocaleTimeString([],{hour:'2-digit',minute:'2-digit'});
   const formatted=text.replace(/\*\*(.*?)\*\*/g,'<strong>$1</strong>').replace(/\n/g,'<br>');
   div.innerHTML=role==='user'
-    ?`<div><div class="msg-bubble user-bubble">${formatted}</div><div class="msg-time">${now}</div></div><div class="msg-avatar user-avatar-chat">J</div>`
+    ?`<div><div class="msg-bubble user-bubble">${formatted}</div><div class="msg-time">${now}</div></div><div class="msg-avatar user-avatar-chat">N</div>`
     :`<div class="msg-avatar ai-avatar">W</div><div><div class="msg-bubble ai-bubble">${formatted}</div><div class="msg-time">${now}</div></div>`;
   msgs.appendChild(div);
   msgs.scrollTop=msgs.scrollHeight;
@@ -1086,6 +1086,8 @@ window.addEventListener('DOMContentLoaded',()=>{
   buildBarChart();
   buildDonut();
   buildSuggestions();
+  loadLiveCrypto();
+  setInterval(loadLiveCrypto, 60000); // refresh every 60s
 });
   // Keep Render server warm — ping every 4 minutes
   setInterval(() => fetch('/ping').catch(() => {}), 4 * 60 * 1000);

@@ -488,6 +488,9 @@ def _fetch_crypto_prices(ids: str) -> dict:
     return {}   # nothing available
 
 # ─── ROUTES ───────────────────────────────────────────────────────────────────
+# Initialize DB immediately so gunicorn workers have it on startup
+init_db()
+
 @app.route('/')
 def index():
     if 'user_id' in session:
@@ -853,6 +856,12 @@ def api_chat_history():
         "SELECT * FROM chat_history WHERE user_id=? ORDER BY created_at DESC LIMIT 20", (uid,)
     ).fetchall()
     return jsonify({'ok': True, 'history': [dict(r) for r in rows]})
+
+
+@app.route('/ping')
+def ping():
+    """Keep-alive endpoint for Render free tier"""
+    return jsonify({'ok': True, 'ts': datetime.utcnow().isoformat()})
 
 if __name__ == '__main__':
     init_db()
