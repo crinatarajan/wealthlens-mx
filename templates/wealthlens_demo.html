@@ -1,9 +1,9 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>WealthLens MX — Live Portfolio Demo</title>
+<title>WealthLens MX â€” Live Portfolio Demo</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -23,7 +23,7 @@
 html{scroll-behavior:smooth}
 body{font-family:'DM Sans',sans-serif;background:var(--surface);color:var(--ink);display:flex;min-height:100vh;font-size:14.5px;line-height:1.5}
 
-/* ── SIDEBAR ── */
+/* â”€â”€ SIDEBAR â”€â”€ */
 .sidebar{width:var(--sidebar);background:var(--ink);display:flex;flex-direction:column;position:fixed;top:0;left:0;bottom:0;z-index:100;transition:transform .3s}
 .sidebar-logo{padding:1.5rem 1.3rem 1.1rem;border-bottom:1px solid rgba(255,255,255,.07)}
 .logo-mark{font-family:'Playfair Display',serif;font-size:1.35rem;font-weight:600;color:#fff;letter-spacing:-.01em}
@@ -50,13 +50,13 @@ nav.sidebar-nav{flex:1;padding:.75rem 0;overflow-y:auto}
 .linkedin-link{display:flex;align-items:center;gap:.5rem;font-size:.78rem;color:rgba(255,255,255,.45);text-decoration:none;padding:.4rem 0;transition:color .2s;margin-top:.25rem}
 .linkedin-link:hover{color:#0A66C2}
 
-/* ── MAIN ── */
+/* â”€â”€ MAIN â”€â”€ */
 .main{margin-left:var(--sidebar);flex:1;min-height:100vh;overflow:hidden}
 .page{display:none;padding:1.75rem;animation:fadeIn .3s ease}
 .page.active{display:block}
 @keyframes fadeIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
 
-/* ── TOPBAR ── */
+/* â”€â”€ TOPBAR â”€â”€ */
 .topbar{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:1.75rem;flex-wrap:wrap;gap:.75rem}
 .page-title{font-family:'Playfair Display',serif;font-size:1.55rem;font-weight:600;color:var(--ink);line-height:1.2}
 .page-subtitle{font-size:.78rem;color:var(--ink-soft);margin-top:2px}
@@ -69,14 +69,14 @@ nav.sidebar-nav{flex:1;padding:.75rem 0;overflow-y:auto}
 .pill-dot{width:5px;height:5px;border-radius:50%;background:currentColor;animation:blink 2s infinite}
 @keyframes blink{0%,100%{opacity:1}50%{opacity:.3}}
 
-/* ── CARDS ── */
+/* â”€â”€ CARDS â”€â”€ */
 .card{background:var(--white);border:1px solid var(--cream-border);border-radius:var(--radius);padding:1.5rem;margin-bottom:1.25rem;transition:box-shadow .2s}
 .card-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:1.25rem;flex-wrap:wrap;gap:.5rem}
 .card-title{font-size:.88rem;font-weight:600;color:var(--ink);display:flex;align-items:center;gap:.4rem}
 .card-sub{font-size:.72rem;color:var(--ink-soft);font-weight:400}
 .card-action{font-size:.75rem;color:var(--blue);cursor:pointer;font-weight:500;border:none;background:none;padding:0}
 
-/* ── KPI GRID ── */
+/* â”€â”€ KPI GRID â”€â”€ */
 .kpi-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:1rem;margin-bottom:1.25rem}
 .kpi{background:var(--white);border:1px solid var(--cream-border);border-radius:var(--radius);padding:1.2rem 1.4rem;position:relative;overflow:hidden;transition:transform .2s,box-shadow .2s}
 .kpi::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;border-radius:var(--radius) var(--radius) 0 0}
@@ -92,7 +92,7 @@ nav.sidebar-nav{flex:1;padding:.75rem 0;overflow-y:auto}
 .kpi-change{font-size:.72rem;margin-top:.3rem;display:flex;align-items:center;gap:3px}
 .up{color:var(--green)}.down{color:var(--red)}.neutral{color:var(--ink-soft)}
 
-/* ── CHARTS ── */
+/* â”€â”€ CHARTS â”€â”€ */
 .chart-grid{display:grid;grid-template-columns:3fr 2fr;gap:1.25rem;margin-bottom:1.25rem}
 @media(max-width:900px){.chart-grid{grid-template-columns:1fr}}
 .bar-chart-wrap{display:flex;align-items:flex-end;gap:6px;height:150px;margin:.5rem 0}
@@ -116,7 +116,7 @@ nav.sidebar-nav{flex:1;padding:.75rem 0;overflow-y:auto}
 .alloc-name{font-size:.75rem;color:var(--ink);flex:1}
 .alloc-pct{font-size:.75rem;font-weight:600;color:var(--ink)}
 
-/* ── API DASHBOARD TABS (scoped) ── */
+/* â”€â”€ API DASHBOARD TABS (scoped) â”€â”€ */
 #page-api .tabs{margin-bottom:1.25rem}
 #page-api .tab-pane{display:none}
 #page-api .tab-pane.active{display:block;animation:fadeIn .2s}
@@ -147,7 +147,7 @@ nav.sidebar-nav{flex:1;padding:.75rem 0;overflow-y:auto}
 .status-label{font-size:.78rem;color:var(--ink);font-weight:500}
 .status-val{font-size:.68rem;color:var(--ink-soft);margin-left:auto}
 
-/* ── ANALYSIS PAGE ── */
+/* â”€â”€ ANALYSIS PAGE â”€â”€ */
 .analysis-header{background:linear-gradient(135deg,var(--ink) 0%,#1a1a28 100%);border-radius:var(--radius);padding:1.75rem;margin-bottom:1.25rem;color:#fff;position:relative;overflow:hidden}
 .analysis-header::after{content:'';position:absolute;top:-40px;right:-40px;width:200px;height:200px;border-radius:50%;background:rgba(201,168,76,.1);pointer-events:none}
 .analysis-header::before{content:'';position:absolute;bottom:-60px;left:100px;width:260px;height:260px;border-radius:50%;background:rgba(91,71,194,.08);pointer-events:none}
@@ -178,7 +178,7 @@ nav.sidebar-nav{flex:1;padding:.75rem 0;overflow-y:auto}
 .impact-med{background:var(--gold-bg);color:var(--gold-dim)}
 .impact-low{background:var(--blue-bg);color:var(--blue)}
 
-/* ── CHATBOT ── */
+/* â”€â”€ CHATBOT â”€â”€ */
 .chat-page{height:calc(100vh - 3.5rem);gap:0;padding:0}
 .chat-page.active{display:flex;flex-direction:column}
 .chat-topbar{padding:1.25rem 1.75rem;border-bottom:1px solid var(--cream-border);background:var(--white);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:.5rem}
@@ -215,12 +215,12 @@ nav.sidebar-nav{flex:1;padding:.75rem 0;overflow-y:auto}
 .send-btn:disabled{opacity:.4;cursor:not-allowed}
 .send-icon{color:#fff;font-size:14px}
 
-/* ── BOTTOM CHIPS ── */
+/* â”€â”€ BOTTOM CHIPS â”€â”€ */
 .quick-chips{display:flex;gap:.5rem;flex-wrap:wrap;padding:.75rem 1.5rem;background:var(--white);border-top:1px solid var(--cream-border)}
 .q-chip{font-size:.7rem;padding:.3rem .75rem;border-radius:100px;border:1px solid var(--cream-border);color:var(--ink-soft);cursor:pointer;background:var(--cream);transition:all .18s;white-space:nowrap}
 .q-chip:hover{background:var(--gold-bg);border-color:var(--gold);color:var(--ink)}
 
-/* ── MARKET DATA ── */
+/* â”€â”€ MARKET DATA â”€â”€ */
 .market-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem;margin-bottom:1.25rem}
 .market-card{background:var(--white);border:1px solid var(--cream-border);border-radius:var(--radius);padding:1.1rem 1.3rem;transition:transform .2s}
 .market-card:hover{transform:translateY(-1px)}
@@ -230,11 +230,11 @@ nav.sidebar-nav{flex:1;padding:.75rem 0;overflow-y:auto}
 .market-change{font-size:.73rem;margin-top:.25rem}
 .market-change.up{color:var(--green)}.market-change.down{color:var(--red)}
 
-/* ── CODE BLOCK ── */
+/* â”€â”€ CODE BLOCK â”€â”€ */
 .code-block{background:var(--ink);color:#7FE8A2;padding:1rem 1.25rem;border-radius:10px;font-family:'DM Mono',monospace;font-size:.7rem;overflow-x:auto;line-height:1.7;white-space:pre;margin-top:.75rem}
 .code-block .key{color:#93C5FD}.code-block .str{color:#FDE68A}.code-block .num{color:#A5F3FC}.code-block .cm{color:#6B7280}
 
-/* ── TABS ── */
+/* â”€â”€ TABS â”€â”€ */
 .tabs{display:flex;gap:0;border-bottom:2px solid var(--cream-border);margin-bottom:1.25rem;overflow-x:auto}
 .tab-btn{padding:.7rem 1.1rem;font-size:.8rem;color:var(--ink-soft);border:none;background:none;cursor:pointer;border-bottom:2px solid transparent;margin-bottom:-2px;transition:all .18s;white-space:nowrap;font-family:'DM Sans',sans-serif;font-weight:500}
 .tab-btn.active{color:var(--ink);border-bottom-color:var(--gold)}
@@ -242,7 +242,7 @@ nav.sidebar-nav{flex:1;padding:.75rem 0;overflow-y:auto}
 .tab-pane{display:none}
 .tab-pane.active{display:block;animation:fadeIn .2s}
 
-/* ── PORTFOLIO TABLE ── */
+/* â”€â”€ PORTFOLIO TABLE â”€â”€ */
 table{width:100%;border-collapse:collapse}
 th{font-size:.68rem;text-transform:uppercase;letter-spacing:.06em;color:var(--ink-soft);padding:.6rem .75rem;text-align:left;border-bottom:2px solid var(--cream-border)}
 td{font-size:.8rem;padding:.75rem .75rem;border-bottom:1px solid var(--surface);color:var(--ink);vertical-align:middle}
@@ -254,7 +254,7 @@ tr:hover td{background:var(--cream)}
 .type-crypto{background:var(--purple-bg);color:var(--purple)}
 .type-cede{background:var(--gold-bg);color:var(--gold-dim)}
 
-/* ── MOBILE HAMBURGER ── */
+/* â”€â”€ MOBILE HAMBURGER â”€â”€ */
 .hamburger{display:none;position:fixed;top:1rem;left:1rem;z-index:200;background:var(--ink);border:none;color:#fff;width:36px;height:36px;border-radius:8px;font-size:16px;cursor:pointer;align-items:center;justify-content:center}
 @media(max-width:700px){
   .hamburger{display:flex}
@@ -265,7 +265,7 @@ tr:hover td{background:var(--cream)}
   .analysis-header{padding:1.25rem}
 }
 
-/* ── SCROLLBAR ── */
+/* â”€â”€ SCROLLBAR â”€â”€ */
 ::-webkit-scrollbar{width:4px;height:4px}
 ::-webkit-scrollbar-track{background:transparent}
 ::-webkit-scrollbar-thumb{background:var(--cream-border);border-radius:10px}
@@ -273,7 +273,7 @@ tr:hover td{background:var(--cream)}
 </head>
 <body>
 
-<button class="hamburger" onclick="toggleSidebar()">☰</button>
+<button class="hamburger" onclick="toggleSidebar()">â˜°</button>
 
 <!-- SIDEBAR -->
 <aside class="sidebar" id="sidebar">
@@ -283,36 +283,36 @@ tr:hover td{background:var(--cream)}
   </div>
   <div class="sidebar-badge">
     <div class="sidebar-badge-dot"></div>
-    <span class="sidebar-badge-text">Live AI — Claude Sonnet</span>
+    <span class="sidebar-badge-text">Live AI â€” Claude Sonnet</span>
   </div>
   <div class="sidebar-user">
-    <div class="user-avatar">JD</div>
+    <div class="user-avatar">ND</div>
     <div class="user-info">
-      <div class="user-name">Juan Demo</div>
-      <div class="user-role">Premium · MXN</div>
+      <div class="user-name">Natarajan Demo</div>
+      <div class="user-role">Premium Â· MXN</div>
     </div>
   </div>
   <nav class="sidebar-nav">
     <div class="nav-section">Overview</div>
     <div class="nav-item active" onclick="showPage('dashboard')">
-      <span class="nav-icon">📊</span>Dashboard
+      <span class="nav-icon">ðŸ“Š</span>Dashboard
     </div>
     <div class="nav-item" onclick="showPage('portfolio')">
-      <span class="nav-icon">💼</span>Portfolio
+      <span class="nav-icon">ðŸ’¼</span>Portfolio
     </div>
     <div class="nav-item" onclick="showPage('market')">
-      <span class="nav-icon">📈</span>Market Data
+      <span class="nav-icon">ðŸ“ˆ</span>Market Data
     </div>
     <div class="nav-section">AI Tools</div>
     <div class="nav-item" onclick="showPage('analysis')">
-      <span class="nav-icon">🧠</span>AI Analysis
+      <span class="nav-icon">ðŸ§ </span>AI Analysis
     </div>
     <div class="nav-item" onclick="showPage('chat')">
-      <span class="nav-icon">💬</span>AI Advisor
+      <span class="nav-icon">ðŸ’¬</span>AI Advisor
     </div>
     <div class="nav-section">Developer</div>
     <div class="nav-item" onclick="showPage('api')">
-      <span class="nav-icon">🔌</span>API Dashboard
+      <span class="nav-icon">ðŸ”Œ</span>API Dashboard
     </div>
   </nav>
   <div class="sidebar-bottom">
@@ -330,12 +330,12 @@ tr:hover td{background:var(--cream)}
 <!-- MAIN CONTENT -->
 <main class="main">
 
-  <!-- ═══════════════════════════════ DASHBOARD PAGE ═══════════════════════════════ -->
+  <!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• DASHBOARD PAGE â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
   <div class="page active" id="page-dashboard">
     <div class="topbar">
       <div>
         <div class="page-title">Financial Dashboard</div>
-        <div class="page-subtitle">June 2026 · Snapshot Overview</div>
+        <div class="page-subtitle">June 2026 Â· Snapshot Overview</div>
       </div>
       <div class="topbar-pills">
         <span class="pill pill-green"><span class="pill-dot"></span>Live</span>
@@ -346,41 +346,41 @@ tr:hover td{background:var(--cream)}
 
     <div class="kpi-grid">
       <div class="kpi gold">
-        <div class="kpi-icon">🏦</div>
+        <div class="kpi-icon">ðŸ¦</div>
         <div class="kpi-label">Total Assets</div>
         <div class="kpi-val">$847K</div>
-        <div class="kpi-change up">▲ 12.4% this quarter</div>
+        <div class="kpi-change up">â–² 12.4% this quarter</div>
       </div>
       <div class="kpi green">
-        <div class="kpi-icon">💵</div>
+        <div class="kpi-icon">ðŸ’µ</div>
         <div class="kpi-label">Net Worth</div>
         <div class="kpi-val">$612K</div>
-        <div class="kpi-change up">▲ 8.1% YoY</div>
+        <div class="kpi-change up">â–² 8.1% YoY</div>
       </div>
       <div class="kpi blue">
-        <div class="kpi-icon">📥</div>
+        <div class="kpi-icon">ðŸ“¥</div>
         <div class="kpi-label">Monthly Income</div>
         <div class="kpi-val">$52K</div>
-        <div class="kpi-change neutral">— Salary + dividends</div>
+        <div class="kpi-change neutral">â€” Salary + dividends</div>
       </div>
       <div class="kpi purple">
-        <div class="kpi-icon">🎯</div>
+        <div class="kpi-icon">ðŸŽ¯</div>
         <div class="kpi-label">Savings Rate</div>
         <div class="kpi-val">34%</div>
-        <div class="kpi-change up">▲ 6pp from Jan</div>
+        <div class="kpi-change up">â–² 6pp from Jan</div>
       </div>
       <div class="kpi red">
-        <div class="kpi-icon">📤</div>
+        <div class="kpi-icon">ðŸ“¤</div>
         <div class="kpi-label">Monthly Expenses</div>
         <div class="kpi-val">$18.5K</div>
-        <div class="kpi-change down">▼ 3.2% MoM</div>
+        <div class="kpi-change down">â–¼ 3.2% MoM</div>
       </div>
     </div>
 
     <div class="chart-grid">
       <div class="card">
         <div class="card-header">
-          <span class="card-title">💹 Income vs Expenses <span class="card-sub">— Last 6 months</span></span>
+          <span class="card-title">ðŸ’¹ Income vs Expenses <span class="card-sub">â€” Last 6 months</span></span>
         </div>
         <div class="bar-chart-wrap" id="incomeChart"></div>
         <div class="legend">
@@ -390,7 +390,7 @@ tr:hover td{background:var(--cream)}
       </div>
       <div class="card">
         <div class="card-header">
-          <span class="card-title">🥧 Asset Allocation</span>
+          <span class="card-title">ðŸ¥§ Asset Allocation</span>
         </div>
         <div class="donut-wrap">
           <svg class="donut-svg" viewBox="0 0 42 42" id="donutChart"></svg>
@@ -401,8 +401,8 @@ tr:hover td{background:var(--cream)}
 
     <div class="card">
       <div class="card-header">
-        <span class="card-title">📋 Recent Transactions</span>
-        <button class="card-action">View all →</button>
+        <span class="card-title">ðŸ“‹ Recent Transactions</span>
+        <button class="card-action">View all â†’</button>
       </div>
       <table>
         <thead><tr><th>Date</th><th>Description</th><th>Category</th><th>Amount</th></tr></thead>
@@ -411,13 +411,13 @@ tr:hover td{background:var(--cream)}
           <tr><td>Jun 2</td><td>Banregio CEDE interest</td><td><span class="asset-type type-cede">Investment</span></td><td class="up">+$1,850</td></tr>
           <tr><td>Jun 1</td><td>Supermarket / groceries</td><td><span class="asset-type type-cash">Food</span></td><td class="down">-$2,340</td></tr>
           <tr><td>May 31</td><td>Amazon MX Prime</td><td><span class="asset-type type-cash">Subscriptions</span></td><td class="down">-$289</td></tr>
-          <tr><td>May 30</td><td>Dividend — AMXL.MX</td><td><span class="asset-type type-stock">Stock</span></td><td class="up">+$3,200</td></tr>
+          <tr><td>May 30</td><td>Dividend â€” AMXL.MX</td><td><span class="asset-type type-stock">Stock</span></td><td class="up">+$3,200</td></tr>
         </tbody>
       </table>
     </div>
   </div>
 
-  <!-- ═══════════════════════════════ PORTFOLIO PAGE ═══════════════════════════════ -->
+  <!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• PORTFOLIO PAGE â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
   <div class="page" id="page-portfolio">
     <div class="topbar">
       <div>
@@ -432,13 +432,13 @@ tr:hover td{background:var(--cream)}
       <div class="kpi gold"><div class="kpi-label">Real Estate Fund</div><div class="kpi-val">$100K</div><div class="kpi-change neutral">11.8% of portfolio</div></div>
     </div>
     <div class="card">
-      <div class="card-header"><span class="card-title">🏦 All Assets</span></div>
+      <div class="card-header"><span class="card-title">ðŸ¦ All Assets</span></div>
       <table>
         <thead><tr><th>Asset</th><th>Type</th><th>Value (MXN)</th><th>Return</th><th>Weight</th></tr></thead>
         <tbody>
           <tr><td>Banregio CEDE 28d</td><td><span class="asset-type type-cede">CEDE</span></td><td>$180,000</td><td class="up">12.10% APR</td><td>21.3%</td></tr>
           <tr><td>Inbursa CEDE 90d</td><td><span class="asset-type type-cede">CEDE</span></td><td>$140,000</td><td class="up">11.80% APR</td><td>16.5%</td></tr>
-          <tr><td>AMXL.MX (América Móvil)</td><td><span class="asset-type type-stock">Stock</span></td><td>$115,000</td><td class="up">+14.2%</td><td>13.6%</td></tr>
+          <tr><td>AMXL.MX (AmÃ©rica MÃ³vil)</td><td><span class="asset-type type-stock">Stock</span></td><td>$115,000</td><td class="up">+14.2%</td><td>13.6%</td></tr>
           <tr><td>S&P 500 ETF (SPY)</td><td><span class="asset-type type-stock">Stock</span></td><td>$96,000</td><td class="up">+8.7%</td><td>11.3%</td></tr>
           <tr><td>Nasdaq ETF (QQQ)</td><td><span class="asset-type type-stock">Stock</span></td><td>$74,000</td><td class="up">+11.2%</td><td>8.7%</td></tr>
           <tr><td>Bitcoin (BTC)</td><td><span class="asset-type type-crypto">Crypto</span></td><td>$95,000</td><td class="up">+23.1%</td><td>11.2%</td></tr>
@@ -449,58 +449,58 @@ tr:hover td{background:var(--cream)}
     </div>
   </div>
 
-  <!-- ═══════════════════════════════ MARKET DATA PAGE ═══════════════════════════════ -->
+  <!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• MARKET DATA PAGE â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
   <div class="page" id="page-market">
     <div class="topbar">
       <div>
         <div class="page-title">Market Data</div>
-        <div class="page-subtitle">Stocks · Crypto · Mexican Bank Rates</div>
+        <div class="page-subtitle">Stocks Â· Crypto Â· Mexican Bank Rates</div>
       </div>
       <div class="topbar-pills">
         <span class="pill pill-green"><span class="pill-dot"></span>Live demo</span>
       </div>
     </div>
     <div class="card" style="margin-bottom:1.25rem">
-      <div class="card-header"><span class="card-title">🏦 Mexican Bank Deposit Rates (CEDE)</span><span class="card-sub">Source: Banxico TIIE ~10.5%</span></div>
+      <div class="card-header"><span class="card-title">ðŸ¦ Mexican Bank Deposit Rates (CEDE)</span><span class="card-sub">Source: Banxico TIIE ~10.5%</span></div>
       <table>
         <thead><tr><th>Bank</th><th>Rate</th><th>Term</th><th>Type</th><th>Min. Amount</th></tr></thead>
         <tbody>
-          <tr><td><strong>Banregio</strong></td><td class="up">12.10%</td><td>28 días</td><td><span class="asset-type type-cede">CEDE</span></td><td>$1,000 MXN</td></tr>
-          <tr><td><strong>Inbursa</strong></td><td class="up">11.80%</td><td>90 días</td><td><span class="asset-type type-cede">CEDE</span></td><td>$5,000 MXN</td></tr>
-          <tr><td><strong>Banbajío</strong></td><td class="up">11.50%</td><td>180 días</td><td><span class="asset-type type-cede">CEDE</span></td><td>$10,000 MXN</td></tr>
-          <tr><td><strong>HSBC MX</strong></td><td class="up">10.90%</td><td>28 días</td><td><span class="asset-type type-cede">CEDE</span></td><td>$50,000 MXN</td></tr>
-          <tr><td><strong>Santander MX</strong></td><td>10.50%</td><td>28 días</td><td><span class="asset-type type-cede">CEDE</span></td><td>$100 MXN</td></tr>
+          <tr><td><strong>Banregio</strong></td><td class="up">12.10%</td><td>28 dÃ­as</td><td><span class="asset-type type-cede">CEDE</span></td><td>$1,000 MXN</td></tr>
+          <tr><td><strong>Inbursa</strong></td><td class="up">11.80%</td><td>90 dÃ­as</td><td><span class="asset-type type-cede">CEDE</span></td><td>$5,000 MXN</td></tr>
+          <tr><td><strong>BanbajÃ­o</strong></td><td class="up">11.50%</td><td>180 dÃ­as</td><td><span class="asset-type type-cede">CEDE</span></td><td>$10,000 MXN</td></tr>
+          <tr><td><strong>HSBC MX</strong></td><td class="up">10.90%</td><td>28 dÃ­as</td><td><span class="asset-type type-cede">CEDE</span></td><td>$50,000 MXN</td></tr>
+          <tr><td><strong>Santander MX</strong></td><td>10.50%</td><td>28 dÃ­as</td><td><span class="asset-type type-cede">CEDE</span></td><td>$100 MXN</td></tr>
         </tbody>
       </table>
     </div>
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.25rem">
       <div class="card">
-        <div class="card-header"><span class="card-title">📊 Stocks</span></div>
+        <div class="card-header"><span class="card-title">ðŸ“Š Stocks</span></div>
         <div class="market-grid" style="grid-template-columns:1fr 1fr">
-          <div class="market-card"><div class="market-ticker">AMXL.MX</div><div class="market-name">América Móvil</div><div class="market-price">$17.82</div><div class="market-change up">▲ +2.4% today</div></div>
-          <div class="market-card"><div class="market-ticker">SPY</div><div class="market-name">S&P 500 ETF</div><div class="market-price">$541.30</div><div class="market-change up">▲ +0.8%</div></div>
-          <div class="market-card"><div class="market-ticker">QQQ</div><div class="market-name">Nasdaq ETF</div><div class="market-price">$468.15</div><div class="market-change up">▲ +1.1%</div></div>
-          <div class="market-card"><div class="market-ticker">FEMSAUBD</div><div class="market-name">FEMSA UBD</div><div class="market-price">$183.40</div><div class="market-change down">▼ -0.3%</div></div>
+          <div class="market-card"><div class="market-ticker">AMXL.MX</div><div class="market-name">AmÃ©rica MÃ³vil</div><div class="market-price">$17.82</div><div class="market-change up">â–² +2.4% today</div></div>
+          <div class="market-card"><div class="market-ticker">SPY</div><div class="market-name">S&P 500 ETF</div><div class="market-price">$541.30</div><div class="market-change up">â–² +0.8%</div></div>
+          <div class="market-card"><div class="market-ticker">QQQ</div><div class="market-name">Nasdaq ETF</div><div class="market-price">$468.15</div><div class="market-change up">â–² +1.1%</div></div>
+          <div class="market-card"><div class="market-ticker">FEMSAUBD</div><div class="market-name">FEMSA UBD</div><div class="market-price">$183.40</div><div class="market-change down">â–¼ -0.3%</div></div>
         </div>
       </div>
       <div class="card">
-        <div class="card-header"><span class="card-title">🪙 Crypto</span></div>
-        <div class="market-grid" style="grid-template-columns:1fr 1fr">
-          <div class="market-card"><div class="market-ticker">BTC</div><div class="market-name">Bitcoin</div><div class="market-price">$105,240</div><div class="market-change up">▲ +3.2% 24h</div></div>
-          <div class="market-card"><div class="market-ticker">ETH</div><div class="market-name">Ethereum</div><div class="market-price">$3,812</div><div class="market-change down">▼ -1.1% 24h</div></div>
-          <div class="market-card"><div class="market-ticker">SOL</div><div class="market-name">Solana</div><div class="market-price">$178.50</div><div class="market-change up">▲ +4.7% 24h</div></div>
-          <div class="market-card"><div class="market-ticker">USDT</div><div class="market-name">Tether</div><div class="market-price">$1.00</div><div class="market-change neutral">— Stable</div></div>
+        <div class="card-header"><span class="card-title">&#x1FA99; Crypto</span><span class="card-sub" id="cryptoUpdated">Loading live prices&hellip;</span></div>
+        <div class="market-grid" style="grid-template-columns:1fr 1fr" id="cryptoGrid">
+          <div class="market-card"><div class="market-ticker">BTC</div><div class="market-name">Bitcoin</div><div class="market-price" id="btcPrice">&hellip;</div><div class="market-change neutral" id="btcChange">&mdash;</div></div>
+          <div class="market-card"><div class="market-ticker">ETH</div><div class="market-name">Ethereum</div><div class="market-price" id="ethPrice">&hellip;</div><div class="market-change neutral" id="ethChange">&mdash;</div></div>
+          <div class="market-card"><div class="market-ticker">SOL</div><div class="market-name">Solana</div><div class="market-price" id="solPrice">&hellip;</div><div class="market-change neutral" id="solChange">&mdash;</div></div>
+          <div class="market-card"><div class="market-ticker">XRP</div><div class="market-name">Ripple</div><div class="market-price" id="xrpPrice">&hellip;</div><div class="market-change neutral" id="xrpChange">&mdash;</div></div>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- ═══════════════════════════════ AI ANALYSIS PAGE ═══════════════════════════════ -->
+  <!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• AI ANALYSIS PAGE â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
   <div class="page" id="page-analysis">
     <div class="topbar">
       <div>
         <div class="page-title">AI Financial Analysis</div>
-        <div class="page-subtitle">Powered by Claude Sonnet — Real-time report generation</div>
+        <div class="page-subtitle">Powered by Claude Sonnet â€” Real-time report generation</div>
       </div>
       <div class="topbar-pills">
         <span class="pill pill-purple"><span class="pill-dot"></span>AI Active</span>
@@ -509,84 +509,84 @@ tr:hover td{background:var(--cream)}
     </div>
 
     <div id="analysisLoading" style="text-align:center;padding:3rem;display:none">
-      <div style="font-size:2rem;margin-bottom:.75rem">🧠</div>
-      <div style="font-size:.9rem;color:var(--ink-soft);margin-bottom:.5rem">Analyzing your financial data…</div>
+      <div style="font-size:2rem;margin-bottom:.75rem">ðŸ§ </div>
+      <div style="font-size:.9rem;color:var(--ink-soft);margin-bottom:.5rem">Analyzing your financial dataâ€¦</div>
       <div style="font-size:.75rem;color:var(--ink-soft)" class="loading-dots">Running AI report</div>
     </div>
 
     <div id="analysisContent">
       <div class="analysis-header" id="analysisHeader">
         <div class="analysis-title">Q2 2026 Financial Health Report</div>
-        <div style="font-size:.78rem;color:rgba(255,255,255,.55);margin-top:.15rem">Generated by Claude Sonnet · Updated June 5, 2026</div>
+        <div style="font-size:.78rem;color:rgba(255,255,255,.55);margin-top:.15rem">Generated by Claude Sonnet Â· Updated June 5, 2026</div>
         <div class="health-score-wrap">
           <div class="health-score" id="healthScore">72</div>
           <div class="health-bar-wrap">
             <div class="health-bar-track"><div class="health-bar-fill" id="healthBar" style="width:72%"></div></div>
-            <div class="health-label" id="healthLabel">Good — Room to optimize</div>
+            <div class="health-label" id="healthLabel">Good â€” Room to optimize</div>
           </div>
         </div>
         <div class="analysis-meta">
-          <span>📅 Jan–Jun 2026</span>
-          <span>💰 $847K total assets</span>
-          <span>📊 5 asset classes</span>
-          <span>🎯 3 active goals</span>
+          <span>ðŸ“… Janâ€“Jun 2026</span>
+          <span>ðŸ’° $847K total assets</span>
+          <span>ðŸ“Š 5 asset classes</span>
+          <span>ðŸŽ¯ 3 active goals</span>
         </div>
       </div>
 
       <div style="margin-bottom:1.25rem;display:flex;gap:.75rem;flex-wrap:wrap;align-items:center">
         <button onclick="generateAIAnalysis()" style="padding:.6rem 1.2rem;background:var(--ink);color:#fff;border:none;border-radius:9px;font-size:.82rem;font-weight:600;cursor:pointer;font-family:'DM Sans',sans-serif;transition:opacity .2s;display:flex;align-items:center;gap:.4rem" onmouseover="this.style.opacity='.8'" onmouseout="this.style.opacity='1'">
-          🧠 Regenerate AI Report
+          ðŸ§  Regenerate AI Report
         </button>
         <span style="font-size:.73rem;color:var(--ink-soft)">Click to get fresh AI insights from Claude</span>
       </div>
 
       <div class="insight-grid" id="insightGrid">
         <div class="insight-card">
-          <div class="insight-icon">✅</div>
+          <div class="insight-icon">âœ…</div>
           <div class="insight-title">Strong Savings Rate</div>
           <div class="insight-text">Your 34% savings rate is well above the recommended 20%. This discipline is building wealth consistently.</div>
         </div>
         <div class="insight-card" style="border-left-color:var(--red)">
-          <div class="insight-icon">⚠️</div>
+          <div class="insight-icon">âš ï¸</div>
           <div class="insight-title">Crypto Concentration Risk</div>
           <div class="insight-text">Crypto represents 16.8% of portfolio. High volatility could significantly impact net worth in a downturn.</div>
         </div>
         <div class="insight-card" style="border-left-color:var(--blue)">
-          <div class="insight-icon">📈</div>
+          <div class="insight-icon">ðŸ“ˆ</div>
           <div class="insight-title">CEDE Rates Opportunity</div>
           <div class="insight-text">Banregio at 12.1% APR is outperforming inflation. Laddering short/mid CEDEs could boost cash yield by ~1.5%.</div>
         </div>
         <div class="insight-card" style="border-left-color:var(--green)">
-          <div class="insight-icon">🌎</div>
+          <div class="insight-icon">ðŸŒŽ</div>
           <div class="insight-title">Good Geographic Diversification</div>
           <div class="insight-text">Mix of Mexican (AMXL, FIBRAs) and US (SPY, QQQ) assets reduces single-market risk effectively.</div>
         </div>
       </div>
 
       <div class="card">
-        <div class="card-header"><span class="card-title">🎯 AI Recommendations</span><span class="card-sub">Personalized to your portfolio</span></div>
+        <div class="card-header"><span class="card-title">ðŸŽ¯ AI Recommendations</span><span class="card-sub">Personalized to your portfolio</span></div>
         <div class="rec-list" id="recList">
           <div class="rec-item"><div class="rec-num">1</div><div class="rec-content"><div class="rec-title">Build a 6-month Emergency Fund</div><div class="rec-text">With $18.5K/mo expenses, target $111K in liquid CEDE. Currently at ~$60K liquid. Prioritize closing this gap before new crypto exposure.</div><span class="rec-impact impact-high">High Impact</span></div></div>
           <div class="rec-item"><div class="rec-num">2</div><div class="rec-content"><div class="rec-title">Reduce Crypto to 10% Max</div><div class="rec-text">Consider rebalancing $57K from crypto to lower-volatility assets. ETH's underperformance (-5.4%) is a signal to reassess allocation.</div><span class="rec-impact impact-high">High Impact</span></div></div>
           <div class="rec-item"><div class="rec-num">3</div><div class="rec-content"><div class="rec-title">Maximize CEDE Laddering Strategy</div><div class="rec-text">Stagger your CEDE maturities (28d / 90d / 180d) to capture higher rates while maintaining monthly liquidity.</div><span class="rec-impact impact-med">Medium Impact</span></div></div>
-          <div class="rec-item"><div class="rec-num">4</div><div class="rec-content"><div class="rec-title">Add International Bonds Exposure</div><div class="rec-text">With US ETFs already in the portfolio, consider adding a bond ETF (BND or AGG) for income stability — 5–8% allocation recommended.</div><span class="rec-impact impact-low">Low Impact</span></div></div>
+          <div class="rec-item"><div class="rec-num">4</div><div class="rec-content"><div class="rec-title">Add International Bonds Exposure</div><div class="rec-text">With US ETFs already in the portfolio, consider adding a bond ETF (BND or AGG) for income stability â€” 5â€“8% allocation recommended.</div><span class="rec-impact impact-low">Low Impact</span></div></div>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- ═══════════════════════════════ CHAT PAGE ═══════════════════════════════ -->
+  <!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• CHAT PAGE â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
   <div class="page chat-page" id="page-chat">
     <div class="chat-topbar">
       <div>
-        <div class="page-title" style="font-size:1.2rem">💬 AI Financial Advisor</div>
-        <div class="page-subtitle">Ask anything about your portfolio · Powered by Claude</div>
+        <div class="page-title" style="font-size:1.2rem">ðŸ’¬ AI Financial Advisor</div>
+        <div class="page-subtitle">Ask anything about your portfolio Â· Powered by Claude</div>
       </div>
       <span class="pill pill-green"><span class="pill-dot"></span>Connected</span>
     </div>
     <div class="chat-layout">
       <div class="chat-sidebar">
-        <div class="chat-sidebar-title">💡 Suggested Questions</div>
+        <div class="chat-sidebar-title">ðŸ’¡ Suggested Questions</div>
         <div class="suggestions-list" id="suggestionsList"></div>
       </div>
       <div class="chat-main">
@@ -594,23 +594,23 @@ tr:hover td{background:var(--cream)}
           <div class="chat-msg">
             <div class="msg-avatar ai-avatar">W</div>
             <div>
-              <div class="msg-bubble ai-bubble">Hola! I'm your WealthLens AI Advisor, powered by Claude. I have full context on your portfolio ($847K in assets, 34% savings rate, MXN base). Ask me anything — from CEDE strategy to crypto risk, budget optimization, or goal planning. <strong>¿En qué puedo ayudarte hoy?</strong></div>
+              <div class="msg-bubble ai-bubble">Hola! I'm your WealthLens AI Advisor, powered by Claude. I have full context on your portfolio ($847K in assets, 34% savings rate, MXN base). Ask me anything â€” from CEDE strategy to crypto risk, budget optimization, or goal planning. <strong>Â¿En quÃ© puedo ayudarte hoy?</strong></div>
               <div class="msg-time">Today, just now</div>
             </div>
           </div>
         </div>
         <div class="quick-chips" id="quickChips"></div>
         <div class="chat-input-bar">
-          <textarea class="chat-input" id="chatInput" placeholder="Ask about your portfolio, savings, investments…" rows="1" onkeydown="handleChatKey(event)" oninput="autoResize(this)"></textarea>
+          <textarea class="chat-input" id="chatInput" placeholder="Ask about your portfolio, savings, investmentsâ€¦" rows="1" onkeydown="handleChatKey(event)" oninput="autoResize(this)"></textarea>
           <button class="send-btn" id="sendBtn" onclick="sendChat()">
-            <span class="send-icon">▶</span>
+            <span class="send-icon">â–¶</span>
           </button>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- ═══════════════════════════════ API DASHBOARD PAGE ═══════════════════════════════ -->
+  <!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• API DASHBOARD PAGE â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
   <div class="page" id="page-api">
     <div class="topbar">
       <div>
@@ -619,21 +619,21 @@ tr:hover td{background:var(--cream)}
       </div>
       <div class="topbar-pills">
         <span class="pill pill-green"><span class="pill-dot"></span>8 Endpoints</span>
-        <span class="pill pill-blue">REST · JSON</span>
+        <span class="pill pill-blue">REST Â· JSON</span>
       </div>
     </div>
 
     <div class="status-row">
       <div class="status-item"><div class="status-indicator online"></div><span class="status-label">API Server</span><span class="status-val">localhost:5000</span></div>
       <div class="status-item"><div class="status-indicator online"></div><span class="status-label">AI Gateway</span><span class="status-val">Claude Sonnet</span></div>
-      <div class="status-item"><div class="status-indicator online"></div><span class="status-label">Database</span><span class="status-val">SQLite · wealthlens.db</span></div>
+      <div class="status-item"><div class="status-indicator online"></div><span class="status-label">Database</span><span class="status-val">SQLite Â· wealthlens.db</span></div>
       <div class="status-item"><div class="status-indicator demo"></div><span class="status-label">Market Data</span><span class="status-val">Demo mode</span></div>
     </div>
 
     <div class="tabs">
-      <button class="tab-btn active" onclick="switchApiTab('endpoints',this)">📋 Endpoints</button>
-      <button class="tab-btn" onclick="switchApiTab('playground',this)">🧪 Playground</button>
-      <button class="tab-btn" onclick="switchApiTab('schema',this)">🗄️ Schema</button>
+      <button class="tab-btn active" onclick="switchApiTab('endpoints',this)">ðŸ“‹ Endpoints</button>
+      <button class="tab-btn" onclick="switchApiTab('playground',this)">ðŸ§ª Playground</button>
+      <button class="tab-btn" onclick="switchApiTab('schema',this)">ðŸ—„ï¸ Schema</button>
     </div>
 
     <div class="tab-pane active" id="api-tab-endpoints">
@@ -646,7 +646,7 @@ tr:hover td{background:var(--cream)}
             <span class="endpoint-desc">Returns total assets, goals, 30-day transactions</span>
           </div>
           <div class="endpoint-body">
-            <button class="try-btn" onclick="runEndpoint('wealth-summary',this)">▶ Run</button>
+            <button class="try-btn" onclick="runEndpoint('wealth-summary',this)">â–¶ Run</button>
             <div class="response-preview" id="res-wealth-summary"></div>
           </div>
         </div>
@@ -658,7 +658,7 @@ tr:hover td{background:var(--cream)}
             <span class="endpoint-desc">Current CEDE rates from Mexican banks</span>
           </div>
           <div class="endpoint-body">
-            <button class="try-btn" onclick="runEndpoint('market-deposits',this)">▶ Run</button>
+            <button class="try-btn" onclick="runEndpoint('market-deposits',this)">â–¶ Run</button>
             <div class="response-preview" id="res-market-deposits"></div>
           </div>
         </div>
@@ -670,7 +670,7 @@ tr:hover td{background:var(--cream)}
             <span class="endpoint-desc">Stock prices via Yahoo Finance</span>
           </div>
           <div class="endpoint-body">
-            <button class="try-btn" onclick="runEndpoint('market-stocks',this)">▶ Run</button>
+            <button class="try-btn" onclick="runEndpoint('market-stocks',this)">â–¶ Run</button>
             <div class="response-preview" id="res-market-stocks"></div>
           </div>
         </div>
@@ -682,7 +682,7 @@ tr:hover td{background:var(--cream)}
             <span class="endpoint-desc">Crypto prices & 24h change via CoinGecko</span>
           </div>
           <div class="endpoint-body">
-            <button class="try-btn" onclick="runEndpoint('market-crypto',this)">▶ Run</button>
+            <button class="try-btn" onclick="runEndpoint('market-crypto',this)">â–¶ Run</button>
             <div class="response-preview" id="res-market-crypto"></div>
           </div>
         </div>
@@ -694,7 +694,7 @@ tr:hover td{background:var(--cream)}
             <span class="endpoint-desc">AI-generated financial report with KPIs & insights</span>
           </div>
           <div class="endpoint-body">
-            <button class="try-btn" onclick="runEndpoint('ai-dashboard',this)">▶ Run</button>
+            <button class="try-btn" onclick="runEndpoint('ai-dashboard',this)">â–¶ Run</button>
             <div class="response-preview" id="res-ai-dashboard"></div>
           </div>
         </div>
@@ -706,7 +706,7 @@ tr:hover td{background:var(--cream)}
             <span class="endpoint-desc">AI financial advisor chat endpoint</span>
           </div>
           <div class="endpoint-body">
-            <button class="try-btn" onclick="runEndpoint('chat',this)">▶ Run</button>
+            <button class="try-btn" onclick="runEndpoint('chat',this)">â–¶ Run</button>
             <div class="response-preview" id="res-chat"></div>
           </div>
         </div>
@@ -718,7 +718,7 @@ tr:hover td{background:var(--cream)}
             <span class="endpoint-desc">API health check & version info</span>
           </div>
           <div class="endpoint-body">
-            <button class="try-btn" onclick="runEndpoint('status',this)">▶ Run</button>
+            <button class="try-btn" onclick="runEndpoint('status',this)">â–¶ Run</button>
             <div class="response-preview" id="res-status"></div>
           </div>
         </div>
@@ -730,7 +730,7 @@ tr:hover td{background:var(--cream)}
             <span class="endpoint-desc">Retrieve stored conversation history</span>
           </div>
           <div class="endpoint-body">
-            <button class="try-btn" onclick="runEndpoint('chat-history',this)">▶ Run</button>
+            <button class="try-btn" onclick="runEndpoint('chat-history',this)">â–¶ Run</button>
             <div class="response-preview" id="res-chat-history"></div>
           </div>
         </div>
@@ -739,7 +739,7 @@ tr:hover td{background:var(--cream)}
 
     <div class="tab-pane" id="api-tab-playground">
       <div class="card">
-        <div class="card-header"><span class="card-title">🧪 Live API Playground</span></div>
+        <div class="card-header"><span class="card-title">ðŸ§ª Live API Playground</span></div>
         <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.25rem">
           <div>
             <div style="margin-bottom:.75rem">
@@ -758,11 +758,11 @@ tr:hover td{background:var(--cream)}
               <label style="font-size:.75rem;color:var(--ink-soft);font-weight:600;display:block;margin-bottom:.4rem">Request Body (JSON)</label>
               <textarea id="pgBody" style="width:100%;min-height:120px;border:1px solid var(--cream-border);border-radius:8px;padding:.65rem;font-family:'DM Mono',monospace;font-size:.73rem;background:var(--cream);resize:vertical">{"question": "What is my biggest financial risk?"}</textarea>
             </div>
-            <button onclick="runPlayground()" style="padding:.6rem 1.2rem;background:var(--ink);color:#fff;border:none;border-radius:8px;font-size:.82rem;font-weight:600;cursor:pointer;font-family:'DM Sans',sans-serif">▶ Send Request</button>
+            <button onclick="runPlayground()" style="padding:.6rem 1.2rem;background:var(--ink);color:#fff;border:none;border-radius:8px;font-size:.82rem;font-weight:600;cursor:pointer;font-family:'DM Sans',sans-serif">â–¶ Send Request</button>
           </div>
           <div>
             <label style="font-size:.75rem;color:var(--ink-soft);font-weight:600;display:block;margin-bottom:.4rem">Response</label>
-            <div id="pgResponse" class="response-preview show" style="min-height:200px;display:block;font-size:.7rem">// Response will appear here…</div>
+            <div id="pgResponse" class="response-preview show" style="min-height:200px;display:block;font-size:.7rem">// Response will appear hereâ€¦</div>
           </div>
         </div>
       </div>
@@ -771,7 +771,7 @@ tr:hover td{background:var(--cream)}
     <div class="tab-pane" id="api-tab-schema">
       <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.25rem">
         <div class="card">
-          <div class="card-header"><span class="card-title">🗄️ users</span></div>
+          <div class="card-header"><span class="card-title">ðŸ—„ï¸ users</span></div>
           <div class="code-block">CREATE TABLE users (
   id       INTEGER PRIMARY KEY,
   email    TEXT UNIQUE NOT NULL,
@@ -783,7 +783,7 @@ tr:hover td{background:var(--cream)}
 );</div>
         </div>
         <div class="card">
-          <div class="card-header"><span class="card-title">🗄️ assets</span></div>
+          <div class="card-header"><span class="card-title">ðŸ—„ï¸ assets</span></div>
           <div class="code-block">CREATE TABLE assets (
   id        INTEGER PRIMARY KEY,
   user_id   INTEGER NOT NULL,
@@ -796,7 +796,7 @@ tr:hover td{background:var(--cream)}
 );</div>
         </div>
         <div class="card">
-          <div class="card-header"><span class="card-title">🗄️ chat_history</span></div>
+          <div class="card-header"><span class="card-title">ðŸ—„ï¸ chat_history</span></div>
           <div class="code-block">CREATE TABLE chat_history (
   id         INTEGER PRIMARY KEY,
   user_id    INTEGER NOT NULL,
@@ -808,7 +808,7 @@ tr:hover td{background:var(--cream)}
 );</div>
         </div>
         <div class="card">
-          <div class="card-header"><span class="card-title">🗄️ goals</span></div>
+          <div class="card-header"><span class="card-title">ðŸ—„ï¸ goals</span></div>
           <div class="code-block">CREATE TABLE goals (
   id         INTEGER PRIMARY KEY,
   user_id    INTEGER NOT NULL,
@@ -827,7 +827,7 @@ tr:hover td{background:var(--cream)}
 </main><!-- /main -->
 
 <script>
-// ── NAV ──
+// â”€â”€ NAV â”€â”€
 function showPage(id){
   document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
   document.querySelectorAll('.nav-item').forEach(n=>n.classList.remove('active'));
@@ -838,7 +838,49 @@ function showPage(id){
 }
 function toggleSidebar(){document.getElementById('sidebar').classList.toggle('open')}
 
-// ── CHARTS ──
+// â”€â”€ CHARTS â”€â”€
+
+// -- LIVE CRYPTO PRICES --
+async function loadLiveCrypto() {
+  try {
+    const res = await fetch('/api/market/crypto?ids=bitcoin,ethereum,solana,xrp');
+    if (!res.ok) throw new Error('HTTP ' + res.status);
+    const data = await res.json();
+    if (data.error) throw new Error(data.error);
+    const map = {
+      bitcoin:  ['btcPrice','btcChange'],
+      ethereum: ['ethPrice','ethChange'],
+      solana:   ['solPrice','solChange'],
+      xrp:      ['xrpPrice','xrpChange']
+    };
+    for (const [id, [priceId, changeId]] of Object.entries(map)) {
+      const coin = data[id];
+      if (!coin) continue;
+      const priceEl  = document.getElementById(priceId);
+      const changeEl = document.getElementById(changeId);
+      if (priceEl) {
+        const mxn = coin.mxn || (coin.usd ? coin.usd * 17.15 : null);
+        priceEl.textContent = mxn
+          ? '$' + mxn.toLocaleString('en-MX', {maximumFractionDigits: 0}) + ' MXN'
+          : '--';
+      }
+      if (changeEl) {
+        const ch = coin.usd_24h_change;
+        if (ch != null) {
+          changeEl.textContent = (ch >= 0 ? '\u25b2 +' : '\u25bc ') + ch.toFixed(2) + '% today';
+          changeEl.className   = 'market-change ' + (ch >= 0 ? 'up' : 'down');
+        }
+      }
+    }
+  } catch(e) {
+    console.warn('Crypto price fetch failed:', e.message);
+    ['btcPrice','ethPrice','solPrice','xrpPrice'].forEach(id => {
+      const el = document.getElementById(id);
+      if (el && (el.textContent === '\u2026' || el.textContent === '')) el.textContent = '--';
+    });
+  }
+}
+
 function buildBarChart(){
   const data=[
     {m:'Jan',inc:48,exp:17},{m:'Feb',inc:50,exp:19},{m:'Mar',inc:51,exp:16},
@@ -880,7 +922,7 @@ function buildDonut(){
   leg.innerHTML=slices.map(s=>`<div class="alloc-row"><div class="alloc-dot" style="background:${s.color}"></div><span class="alloc-name">${s.label}</span><span class="alloc-pct">${s.pct}%</span></div>`).join('');
 }
 
-// ── SUGGESTIONS & QUICK CHIPS ──
+// â”€â”€ SUGGESTIONS & QUICK CHIPS â”€â”€
 const suggestions=[
   {cat:'Portfolio',q:'What is my biggest financial risk right now?'},
   {cat:'CEDE',q:'Should I ladder my CEDEs across different terms?'},
@@ -907,13 +949,13 @@ function useSuggestion(q){
   sendChat();
 }
 
-// ── CHAT ──
+// â”€â”€ CHAT â”€â”€
 const chatHistory=[];
 const systemPrompt=`You are WealthLens AI, a financial advisor for a Mexican user. Portfolio context:
 - Total assets: $847,000 MXN
 - Breakdown: 38% Cash/CEDE, 33% Mexican & US stocks (AMXL.MX, SPY, QQQ), 17% Crypto (BTC, ETH), 12% FIBRA (FUNO11)
 - Monthly income: $52,000 MXN. Monthly expenses: $18,500 MXN. Savings rate: 34%.
-- Top CEDE rate: Banregio 12.10% APR, 28 días.
+- Top CEDE rate: Banregio 12.10% APR, 28 dÃ­as.
 - Banxico TIIE rate: ~10.5% base.
 - Active goals: Emergency fund (60% complete), Retirement fund (15% complete).
 - User speaks English and Spanish.
@@ -937,12 +979,16 @@ async function sendChat(){
     });
     const data=await res.json();
     removeTyping(typingId);
-    const answer=data.answer||'Sorry, I couldn\'t generate a response. Please try again.';
-    appendMsg('ai',answer);
-    chatHistory.push({role:'assistant',content:answer});
+    if(!data.ok){
+      appendMsg('ai','⚠️ AI advisor error: '+(data.error||'The AI could not generate a reply. Ensure GROQ_API_KEY is set in your Render Environment Variables.'));
+    } else {
+      const answer=data.answer||'Sorry, I could not generate a response.';
+      appendMsg('ai',answer);
+      chatHistory.push({role:'assistant',content:answer});
+    }
   }catch(e){
     removeTyping(typingId);
-    appendMsg('ai','⚠️ Could not reach the server. Please refresh the page and try again.');
+    appendMsg('ai','⚠️ Could not connect to the server. Make sure your app is running on Render and GROQ_API_KEY is set in Environment Variables. Error: '+e.message);
   }
   document.getElementById('sendBtn').disabled=false;
 }
@@ -953,7 +999,7 @@ function appendMsg(role,text){
   const now=new Date().toLocaleTimeString([],{hour:'2-digit',minute:'2-digit'});
   const formatted=text.replace(/\*\*(.*?)\*\*/g,'<strong>$1</strong>').replace(/\n/g,'<br>');
   div.innerHTML=role==='user'
-    ?`<div><div class="msg-bubble user-bubble">${formatted}</div><div class="msg-time">${now}</div></div><div class="msg-avatar user-avatar-chat">J</div>`
+    ?`<div><div class="msg-bubble user-bubble">${formatted}</div><div class="msg-time">${now}</div></div><div class="msg-avatar user-avatar-chat">N</div>`
     :`<div class="msg-avatar ai-avatar">W</div><div><div class="msg-bubble ai-bubble">${formatted}</div><div class="msg-time">${now}</div></div>`;
   msgs.appendChild(div);
   msgs.scrollTop=msgs.scrollHeight;
@@ -975,41 +1021,52 @@ function removeTyping(id){const el=document.getElementById(id);if(el)el.remove()
 function handleChatKey(e){if(e.key==='Enter'&&!e.shiftKey){e.preventDefault();sendChat();}}
 function autoResize(el){el.style.height='auto';el.style.height=Math.min(el.scrollHeight,120)+'px';}
 
-// ── AI ANALYSIS ──
+// â”€â”€ AI ANALYSIS â”€â”€
 async function generateAIAnalysis(){
   document.getElementById('analysisLoading').style.display='block';
   document.getElementById('analysisContent').style.opacity='.4';
   try{
-    const res=await fetch('https://api.anthropic.com/v1/messages',{
+    const res=await fetch('/api/ai/dashboard',{
       method:'POST',
       headers:{'Content-Type':'application/json'},
-      body:JSON.stringify({
-        model:'claude-sonnet-4-20250514',
-        max_tokens:1000,
-        system:'You are a financial analyst. Return ONLY valid JSON, no markdown, no backticks. Analyze the given portfolio and return this exact structure: {"health_score": number 0-100, "health_label": "string", "insights": [{"icon":"emoji","title":"string","text":"string","color":"#hexcolor"}], "recommendations":[{"title":"string","text":"string","impact":"high|medium|low"}]}',
-        messages:[{role:'user',content:'Portfolio: $847K total assets. 38% CEDE (Banregio 12.1% APR, Inbursa 11.8%), 33% stocks (AMXL.MX +14.2%, SPY +8.7%, QQQ +11.2%), 17% crypto (BTC +23.1%, ETH -5.4%), 12% FIBRA (FUNO11 +9.3%). Income $52K/mo, expenses $18.5K/mo, savings rate 34%. Emergency fund 60% funded. Banxico TIIE 10.5%. Generate 4 insights and 4 recommendations.'}]
-      })
+      body:JSON.stringify({prompt:'Generate 4 insights and 4 recommendations based on my portfolio.'})
     });
+    if(!res.ok) throw new Error('HTTP '+res.status);
     const data=await res.json();
-    const text=data.content?.[0]?.text||'{}';
-    const clean=text.replace(/```json|```/g,'').trim();
-    const report=JSON.parse(clean);
+    if(!data.ok) throw new Error(data.error||'AI analysis failed');
+    const d=data.dashboard;
+    // Map backend response to applyAnalysis format
+    const report={
+      health_score: d.health_score||72,
+      health_label: d.health_label||'Good',
+      insights: (d.insights||[]).map(ins=>({
+        icon: ins.type==='positive'?'✅':ins.type==='warning'?'⚠️':'💡',
+        title: ins.title,
+        text: ins.body,
+        color: ins.type==='positive'?'var(--green)':ins.type==='warning'?'var(--red)':'var(--blue)'
+      })),
+      recommendations: (d.recommendations||[]).map(rec=>({
+        title: rec.title,
+        text: rec.detail,
+        impact: rec.impact||'medium'
+      }))
+    };
     applyAnalysis(report);
   }catch(e){
     // fallback
     applyAnalysis({
-      health_score:72,health_label:'Good — Room to optimize',
+      health_score:72,health_label:'Good â€” Room to optimize',
       insights:[
-        {icon:'✅',title:'Strong Savings Rate',text:'Your 34% savings rate is well above the 20% benchmark, building wealth consistently every month.',color:'var(--gold)'},
-        {icon:'⚠️',title:'Crypto Overweight',text:'At 17%, crypto exposure exceeds the 10% max for a balanced risk profile. ETH\'s -5.4% is a warning sign.',color:'var(--red)'},
-        {icon:'📈',title:'CEDE Outperformance',text:'Banregio at 12.1% vs 10.5% TIIE means you\'re capturing a 160bps spread. Excellent fixed-income positioning.',color:'var(--blue)'},
-        {icon:'🌎',title:'Geographic Balance',text:'Your MX/US split is healthy. FUNO11 FIBRA adds real estate exposure without direct property management.',color:'var(--green)'}
+        {icon:'âœ…',title:'Strong Savings Rate',text:'Your 34% savings rate is well above the 20% benchmark, building wealth consistently every month.',color:'var(--gold)'},
+        {icon:'âš ï¸',title:'Crypto Overweight',text:'At 17%, crypto exposure exceeds the 10% max for a balanced risk profile. ETH\'s -5.4% is a warning sign.',color:'var(--red)'},
+        {icon:'ðŸ“ˆ',title:'CEDE Outperformance',text:'Banregio at 12.1% vs 10.5% TIIE means you\'re capturing a 160bps spread. Excellent fixed-income positioning.',color:'var(--blue)'},
+        {icon:'ðŸŒŽ',title:'Geographic Balance',text:'Your MX/US split is healthy. FUNO11 FIBRA adds real estate exposure without direct property management.',color:'var(--green)'}
       ],
       recommendations:[
         {title:'Close Emergency Fund Gap',text:'You need $51K more to reach a 6-month emergency buffer. Redirect next 3 months of surplus savings before investing further.',impact:'high'},
         {title:'Trim Crypto to 10%',text:'Rebalance ~$57K from crypto into CEDEs or bonds. Use BTC\'s recent rally as a tax-efficient exit point.',impact:'high'},
         {title:'CEDE Laddering',text:'Split your $320K cash/CEDE across 28d/90d/180d tranches to capture higher rates while maintaining liquidity.',impact:'medium'},
-        {title:'Add Bond Exposure',text:'A 5–8% allocation to AGG or BND would reduce portfolio volatility without sacrificing much return.',impact:'low'}
+        {title:'Add Bond Exposure',text:'A 5â€“8% allocation to AGG or BND would reduce portfolio volatility without sacrificing much return.',impact:'low'}
       ]
     });
   }
@@ -1024,7 +1081,7 @@ function applyAnalysis(r){
     const colors=[,'var(--red)','var(--blue)','var(--green)'];
     document.getElementById('insightGrid').innerHTML=r.insights.map((ins,i)=>`
       <div class="insight-card" style="border-left-color:${ins.color||colors[i]||'var(--gold)'}">
-        <div class="insight-icon">${ins.icon||'💡'}</div>
+        <div class="insight-icon">${ins.icon||'ðŸ’¡'}</div>
         <div class="insight-title">${ins.title}</div>
         <div class="insight-text">${ins.text}</div>
       </div>`).join('');
@@ -1039,20 +1096,20 @@ function applyAnalysis(r){
   }
 }
 
-// ── API DEMO RESPONSES ──
+// â”€â”€ API DEMO RESPONSES â”€â”€
 const demoResponses={
   'status':{ok:true,version:'2.0.1',ai_configured:true,ai_model:'claude-sonnet-4-20250514',ai_provider:'Anthropic',features:['chat','ai_dashboard','market_data','goals','assets']},
   'wealth-summary':{ok:true,wealth:{total_assets_mxn:847000,asset_count:8},goals:{total_goals:3,total_saved_mxn:285000,total_target_mxn:1100000},recent_30_days:{income_mxn:52000,expenses_mxn:18500}},
-  'market-deposits':{ok:true,rates:[{bank:'Banregio',rate:12.10,term:'28 días',type:'CEDE'},{bank:'Inbursa',rate:11.80,term:'90 días',type:'CEDE'},{bank:'Banbajío',rate:11.50,term:'180 días',type:'CEDE'}],source:'static_fallback',reference:'Banxico TIIE ~10.5%'},
+  'market-deposits':{ok:true,rates:[{bank:'Banregio',rate:12.10,term:'28 dÃ­as',type:'CEDE'},{bank:'Inbursa',rate:11.80,term:'90 dÃ­as',type:'CEDE'},{bank:'BanbajÃ­o',rate:11.50,term:'180 dÃ­as',type:'CEDE'}],source:'static_fallback',reference:'Banxico TIIE ~10.5%'},
   'market-stocks':{ok:true,stocks:[{symbol:'AMXL.MX',price:17.82,change:2.4},{symbol:'SPY',price:541.30,change:0.8},{symbol:'QQQ',price:468.15,change:1.1}]},
   'market-crypto':{ok:true,crypto:[{id:'bitcoin',symbol:'BTC',price:105240,change_24h:3.2},{id:'ethereum',symbol:'ETH',price:3812,change_24h:-1.1},{id:'solana',symbol:'SOL',price:178.50,change_24h:4.7}]},
   'ai-dashboard':{ok:true,dashboard:{report_title:'Q2 2026 Financial Dashboard',health_score:72,kpis:[{label:'Net Worth',value:'$612K'},{label:'Savings Rate',value:'34%'}],insights:['Strong CEDE positioning at 12.1% APR','Crypto exposure slightly elevated at 17%']}},
   'chat':{ok:true,answer:'Based on your $847K portfolio and 34% savings rate, your biggest risk is crypto concentration at 17%. With ETH down -5.4%, I recommend trimming to 10% and moving the surplus into a Banregio 28-day CEDE at 12.1% APR.',demo:false},
-  'chat-history':{ok:true,history:[{id:1,question:'What is my savings rate?',answer:'Your savings rate is 34% — excellent!',created_at:'2026-06-05'},{id:2,question:'Should I buy more BTC?',answer:'With 17% crypto exposure, I\'d hold off until you rebalance.',created_at:'2026-06-04'}]}
+  'chat-history':{ok:true,history:[{id:1,question:'What is my savings rate?',answer:'Your savings rate is 34% â€” excellent!',created_at:'2026-06-05'},{id:2,question:'Should I buy more BTC?',answer:'With 17% crypto exposure, I\'d hold off until you rebalance.',created_at:'2026-06-04'}]}
 };
 async function runEndpoint(id,btn){
   const el=document.getElementById('res-'+id);
-  el.textContent='Loading…';
+  el.textContent='Loadingâ€¦';
   el.classList.add('show');
   btn.disabled=true;
   await new Promise(r=>setTimeout(r,600+Math.random()*400));
@@ -1062,7 +1119,7 @@ async function runEndpoint(id,btn){
 async function runPlayground(){
   const id=document.getElementById('pgEndpoint').value;
   const out=document.getElementById('pgResponse');
-  out.textContent='Running…';
+  out.textContent='Runningâ€¦';
   await new Promise(r=>setTimeout(r,500+Math.random()*500));
   out.textContent=JSON.stringify(demoResponses[id]||{ok:true},null,2);
 }
@@ -1073,12 +1130,17 @@ function switchApiTab(id,btn){
   btn.classList.add('active');
 }
 
-// ── INIT ──
+// â”€â”€ INIT â”€â”€
 window.addEventListener('DOMContentLoaded',()=>{
   buildBarChart();
   buildDonut();
   buildSuggestions();
+  loadLiveCrypto();
+  setInterval(loadLiveCrypto, 60000); // refresh every 60s
 });
+  // Keep Render server warm — ping every 4 minutes
+  setInterval(() => fetch('/ping').catch(() => {}), 4 * 60 * 1000);
 </script>
 </body>
 </html>
+
